@@ -1,0 +1,95 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brew · Coffee Todo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="app" id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-icon-wrapper">
+                    <div class="logo-icon">☕</div>
+                    <div class="steam"></div>
+                    <div class="steam"></div>
+                    <div class="steam"></div>
+                </div>
+                <div>
+                    <span class="logo-text">Brew<span>.</span></span>
+                    <span class="greeting" id="greeting">Good morning</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </header>
+
+        <!-- Calendar -->
+        <div class="calendar-wrap">
+            <div class="calendar-nav">
+                <button id="prevMonthBtn">‹</button>
+                <span class="month-label" id="monthLabel">January 2026</span>
+                <div class="nav-buttons">
+                    <button id="todayBtn">Today</button>
+                    <button id="nextMonthBtn">›</button>
+                </div>
+            </div>
+            <div class="day-headers" id="dayHeaders">
+                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- injected -->
+            </div>
+        </div>
+
+        <!-- Todo Section -->
+        <section class="todo-section">
+            <div class="stats-bar" id="statsBar">
+                <div class="stats-group">
+                    <span>📋 <span class="num" id="totalCount">0</span></span>
+                    <span>⏳ <span class="num" id="activeCount">0</span></span>
+                    <span>✅ <span class="num accent" id="completedCount">0</span></span>
+                </div>
+                <span class="motivation-text" id="motivationText">☕ Time to brew some tasks</span>
+                <button class="clear-btn" id="clearCompleted">Clear done</button>
+            </div>
+
+            <form class="add-form" id="addForm">
+                <div class="input-wrap">
+                    <span class="icon">+</span>
+                    <input type="text" id="todoInput" placeholder="What's brewing?" autocomplete="off" />
+                </div>
+                <div class="actions">
+                    <select id="prioritySelect">
+                        <option value="low">🟢 Low</option>
+                        <option value="medium" selected>🟡 Medium</option>
+                        <option value="high">🔴 High</option>
+                    </select>
+                    <input type="date" id="dueDateInput" />
+                    <button type="submit" class="btn-add" id="addBtn">Add</button>
+                </div>
+            </form>
+
+            <div class="filters" id="filters">
+                <button class="active" data-filter="all">All</button>
+                <button data-filter="active">Active</button>
+                <button data-filter="completed">Done</button>
+            </div>
+
+            <ul class="todo-list" id="todoList"></ul>
+        </section>
+    </div>
+
+    <div class="celebration-container" id="celebrationContainer"></div>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
